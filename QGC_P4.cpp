@@ -6,14 +6,14 @@ QGC_P4::QGC_P4(Funcao* integrando) {
 
 double QGC_P4::integrar() {
 
-  double w1 = -sqrt(2.0+sqrt(2.0))/2.0;
-  double w2 = -sqrt(2.0-sqrt(2.0))/2.0;
-  double w3 = sqrt(2.0-sqrt(2.0))/2.0;
-  double w4 = sqrt(2.0+sqrt(2.0))/2.0;
-  double x1 = M_PI/4.0;
-  double x2 = M_PI/4.0;
-  double x3 = M_PI/4.0;
-  double x4 = M_PI/4.0;
+  double x1 = -sqrt(2.0+sqrt(2.0))/2.0;
+  double x2 = -sqrt(2.0-sqrt(2.0))/2.0;
+  double x3 = sqrt(2.0-sqrt(2.0))/2.0;
+  double x4 = sqrt(2.0+sqrt(2.0))/2.0;
+  double w1 = M_PI/4.0;
+  double w2 = M_PI/4.0;
+  double w3 = M_PI/4.0;
+  double w4 = M_PI/4.0;
   double fx1 = (integrando->f(x1))/(1.0/sqrt(1.0-x1*x1));
   double fx2 = (integrando->f(x2))/(1.0/sqrt(1.0-x2*x2));
   double fx3 = (integrando->f(x3))/(1.0/sqrt(1.0-x3*x3));

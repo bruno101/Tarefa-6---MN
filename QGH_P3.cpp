@@ -6,12 +6,12 @@ QGH_P3::QGH_P3(Funcao* integrando) {
 
 double QGH_P3::integrar() {
 
-  double w1 = -sqrt(3.0/2.0);
-  double w2 = 0.0;
-  double w3 = sqrt(3.0/2.0);
-  double x1 = M_PI/6.0;
-  double x2 = 2.0*sqrt(M_PI)/3.0;
-  double x3 = M_PI/6.0;
+  double x1 = -sqrt(3.0/2.0);
+  double x2 = 0.0;
+  double x3 = sqrt(3.0/2.0);
+  double w1 = sqrt(M_PI)/6.0;
+  double w2 = 2.0*sqrt(M_PI)/3.0;
+  double w3 = sqrt(M_PI)/6.0;
   double fx1 = (integrando->f(x1))/exp(-x1*x1);
   double fx2 = (integrando->f(x2))/exp(-x2*x2);
   double fx3 = (integrando->f(x3))/exp(-x3*x3);

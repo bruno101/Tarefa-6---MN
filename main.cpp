@@ -3,6 +3,9 @@
 #include "Funcao02.h"
 #include "Funcao03.h"
 #include "Funcao04.h"
+#include "Funcao05.h"
+#include "Funcao06.h"
+#include "Funcao07.h"
 #include "NC_A_P1.h"
 #include "NC_F_P1.h"
 #include "NC_A_P2.h"
@@ -50,6 +53,9 @@ int main() {
   cout << "\t2 - sin(x) \n";
   cout << "\t3 - cos(x) \n";
   cout << "\t4 - (sen(2x)+4x^2+3x)^2 \n";
+  cout << "\t5 - (e^(-x^2)*(x+1)) \n";
+  cout << "\t6 - (e^(-x)*(x+1)) \n";
+  cout << "\t7 - ((1/sqrt(1-x^2))*(x+1))\n";
   cin >> id_integrando;
   switch (id_integrando) {
     case 1:
@@ -63,6 +69,16 @@ int main() {
        break;
     case 4:
        integrando = new Funcao04;
+       break;
+    case 5:
+       integrando = new Funcao05;
+       break;
+    case 6:
+       integrando = new Funcao06;
+       break;
+    case 7:
+       integrando = new Funcao07;
+       break;
   }
 
   cout << "Escolha entre Gauss-Legendre, Newton-Cotes ou quadraturas especiais\n";
@@ -210,9 +226,9 @@ int main() {
         int tipo_quadratura;
 
         cout << "Escolha o tipo de quadatura: \n";
-        cout << "1 - Gauss-Hermite";
-        cout << "2 - Gauss-Laguerre";
-        cout << "3 - Gauss-Chebyshev";
+        cout << "1 - Gauss-Hermite\n";
+        cout << "2 - Gauss-Laguerre\n";
+        cout << "3 - Gauss-Chebyshev\n";
         cin >> tipo_quadratura;
 
         cout << "Escolha o grau do polinômio de substituição: \n";
@@ -224,45 +240,54 @@ int main() {
         switch (tipo_quadratura) {
           case 1:
             switch (grau_polinomio_substituicao) {
-              case 1:
+              case 2:
                 pintegrObj = new QGH_P2(integrando);
                 integral = pintegrObj->integrar();
-              case 2:
+                break;
+              case 3:
                 pintegrObj = new QGH_P3(integrando);
                 integral = pintegrObj->integrar();
-              case 3:
+                break;
+              case 4:
                 pintegrObj = new QGH_P4(integrando);
                 integral = pintegrObj->integrar();
-              break;
+                break;
             }
+          break;
 
           case 2:
             switch (grau_polinomio_substituicao) {
-              case 1:
+              case 2:
                 pintegrObj = new QGL_P2(integrando);
                 integral = pintegrObj->integrar();
-              case 2:
+                break;
+              case 3:
                 pintegrObj = new QGL_P3(integrando);
                 integral = pintegrObj->integrar();
-              case 3:
+                break;
+              case 4:
                 pintegrObj = new QGL_P4(integrando);
                 integral = pintegrObj->integrar();
-              break;
+                break;
             }
+          break;
 
           case 3:
             switch (grau_polinomio_substituicao) {
-              case 1:
+              case 2:
                 pintegrObj = new QGC_P2(integrando);
                 integral = pintegrObj->integrar();
-              case 2:
+                break;
+              case 3:
                 pintegrObj = new QGC_P3(integrando);
                 integral = pintegrObj->integrar();
-              case 3:
+                break;
+              case 4:
                 pintegrObj = new QGC_P4(integrando);
                 integral = pintegrObj->integrar();
-              break;
+                break;
             }
+          break;
 
           break;
         }
