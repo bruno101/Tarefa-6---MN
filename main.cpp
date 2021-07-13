@@ -221,6 +221,8 @@ int main() {
            break;
       }
 
+      break;
+
       case 3:
 
         int tipo_quadratura;
